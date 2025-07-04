@@ -59,10 +59,13 @@ export async function POST(req: Request) {
     const { id, email_addresses, image_url, username, first_name, last_name } =
       evt.data;
 
+    const newUsername =
+      username || email_addresses[0].email_address.split("@")[0];
+
     const mongoUser = await createUser({
       clerkId: id,
       name: `${first_name}${last_name ? ` ${last_name}` : ""}`,
-      username: username!,
+      username: newUsername,
       email: email_addresses[0].email_address,
       picture: image_url,
     });
@@ -72,12 +75,12 @@ export async function POST(req: Request) {
 
   if (eventType === "user.updated") {
     const { id, image_url, first_name, last_name, username } = evt.data;
-
+    const newUsername = username || first_name;
     const mongoUser = await updateUser({
       clerkId: id,
       updateData: {
         name: `${first_name} ${last_name || ""}`,
-        username: username!,
+        username: newUsername,
         picture: image_url,
       },
       path: `/profile/${id}`,
