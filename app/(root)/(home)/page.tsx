@@ -5,42 +5,12 @@ import NoResult from "@/components/shared/NoResult";
 import LocalSearchbar from "@/components/shared/search/LocalSearchbar";
 import { Button } from "@/components/ui/button";
 import { HomePageFilters } from "@/constants/filters";
+import { getQuestions } from "@/lib/actions/question.action";
 import Link from "next/link";
 
-const questions = [
-  {
-    _id: "1",
-    title: "How to implement a responsive navbar in React?",
-    tags: [
-      { _id: "1", name: "React" },
-      { _id: "2", name: "CSS" },
-    ],
-    author: { _id: "1", name: "John Doe", picture: "/assets/icons/avatar.svg" },
-    upvotes: 20,
-    views: 150,
-    answers: 5,
-    createdAt: new Date("2023-10-01T12:00:00Z"),
-  },
-  {
-    _id: "2",
-    title: "What is the best way to manage state in a React application?",
-    tags: [
-      { _id: "3", name: "React" },
-      { _id: "4", name: "State Management" },
-    ],
-    author: {
-      _id: "2",
-      name: "Jane Smith",
-      picture: "/assets/icons/avatar.svg",
-    },
-    upvotes: 20,
-    views: 150,
-    answers: 5,
-    createdAt: new Date("2023-10-01T12:00:00Z"),
-  },
-];
+export default async function Home() {
+  const result = await getQuestions({});
 
-export default function Home() {
   return (
     <>
       <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
@@ -67,8 +37,8 @@ export default function Home() {
       </div>
       <HomeFilters />
       <div className="mt-10 flex w-full flex-col gap-6">
-        {questions.length > 0 ? (
-          questions.map((question) => (
+        {result.length > 0 ? (
+          result.map((question) => (
             <QuestionCard
               key={question._id}
               _id={question._id}

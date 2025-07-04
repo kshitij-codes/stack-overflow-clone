@@ -5,10 +5,10 @@ import RenderTag from "./RenderTag";
 
 const hotQuestions = [
   { _id: "1", title: "How do I use express as a custom server in Next.js?" },
-  { _id: "1", title: "How do I use express as a custom server in Next.js?" },
-  { _id: "1", title: "How do I use express as a custom server in Next.js?" },
-  { _id: "1", title: "How do I use express as a custom server in Next.js?" },
-  { _id: "1", title: "How do I use express as a custom server in Next.js?" },
+  { _id: "2", title: "How do I use express as a custom server in Next.js?" },
+  { _id: "3", title: "How do I use express as a custom server in Next.js?" },
+  { _id: "4", title: "How do I use express as a custom server in Next.js?" },
+  { _id: "5", title: "How do I use express as a custom server in Next.js?" },
 ];
 
 const popularTags = [
