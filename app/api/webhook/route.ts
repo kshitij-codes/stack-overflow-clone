@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
         name: `${first_name}${last_name ? ` ${last_name}` : ""}`,
         email: email_addresses[0].email_address,
         picture: image_url,
-        username: username ?? "",
+        username: username || email_addresses[0].email_address.split("@")[0],
       });
       return NextResponse.json(
         { message: "OK", user: mongoUser },
@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
           name: `${first_name}${last_name ? ` ${last_name}` : ""}`,
           email: email_addresses[0].email_address,
           picture: image_url,
-          username: username ?? "",
+          username: username || email_addresses[0].email_address.split("@")[0],
         },
         path: `/profile/${id}`,
       });
