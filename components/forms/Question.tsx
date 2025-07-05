@@ -159,7 +159,7 @@ const Question = ({ mongoUserId }: Props) => {
                       "anchor",
                       "searchreplace",
                       "visualblocks",
-                      "code",
+                      "codesample",
                       "fullscreen",
                       "insertdatetime",
                       "media",
@@ -192,7 +192,7 @@ const Question = ({ mongoUserId }: Props) => {
                 Tags<span className="text-primary-500">*</span>
               </FormLabel>
               <FormControl className="mt-3.5">
-                <React.Fragment>
+                <>
                   <Input
                     className="no-focus paragraph-regular background-light900_dark300 light-border-2 text-dark300_light700 min-h-[56px] border rounded"
                     placeholder="Add tags..."
@@ -218,7 +218,7 @@ const Question = ({ mongoUserId }: Props) => {
                       ))}
                     </div>
                   )}
-                </React.Fragment>
+                </>
               </FormControl>
               <FormDescription className="body-regular mt-2.5 text-light-500">
                 Add up to 3 tags to describe what your question is about. You
